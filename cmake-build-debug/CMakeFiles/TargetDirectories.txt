@@ -1,5 +1,0 @@
-D:/GitHub/F.P.L IDE/cmake-build-debug/CMakeFiles/F_P_L_IDE.dir
-D:/GitHub/F.P.L IDE/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/GitHub/F.P.L IDE/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/GitHub/F.P.L IDE/cmake-build-debug/CMakeFiles/F_P_L_IDE_autogen_timestamp_deps.dir
-D:/GitHub/F.P.L IDE/cmake-build-debug/CMakeFiles/F_P_L_IDE_autogen.dir

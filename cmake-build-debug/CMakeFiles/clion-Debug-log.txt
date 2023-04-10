@@ -1,5 +1,0 @@
-C:\Users\cleme\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/cleme/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/ninja/win/x64/ninja.exe -G Ninja -S "D:\GitHub\F.P.L IDE" -B "D:\GitHub\F.P.L IDE\cmake-build-debug"
--- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done
--- Generating done
--- Build files have been written to: D:/GitHub/F.P.L IDE/cmake-build-debug
