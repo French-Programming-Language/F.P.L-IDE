@@ -20,7 +20,7 @@ find_package(Qt6 COMPONENTS
 add_executable(F_P_L_IDE main.cpp
         src/WindowManager/WindowManager.cpp
         src/WindowManager/WindowManager.h
-        )
+        src/TextButton/TextButton.cpp src/TextButton/TextButton.h)
 
 target_link_libraries(F_P_L_IDE
         Qt::Core
