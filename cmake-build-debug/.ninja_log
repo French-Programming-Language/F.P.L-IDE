@@ -1,0 +1,8 @@
+# ninja log v5
+5	106	7028547629543215	F_P_L_IDE_autogen/timestamp	e7cdd90ae15d5723
+5	106	7028547629543215	F_P_L_IDE_autogen/mocs_compilation.cpp	e7cdd90ae15d5723
+1665	2026	7028547646497515	F_P_L_IDE.exe	a3413a642c874f3d
+5	106	7028547629543215	D:/GitHub/F.P.L IDE/cmake-build-debug/F_P_L_IDE_autogen/timestamp	e7cdd90ae15d5723
+5	106	7028547629543215	D:/GitHub/F.P.L IDE/cmake-build-debug/F_P_L_IDE_autogen/mocs_compilation.cpp	e7cdd90ae15d5723
+185	259	7028546695369552	CMakeFiles/F_P_L_IDE.dir/F_P_L_IDE_autogen/mocs_compilation.cpp.obj	b4ba6c52fd08fc8
+110	1665	7028547645112309	CMakeFiles/F_P_L_IDE.dir/main.cpp.obj	427dd4c45a9182d
