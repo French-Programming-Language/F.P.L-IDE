@@ -9,6 +9,4 @@ TextButton::TextButton(QWidget *parent, const QString& text) {
     setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 }
 
-TextButton::~TextButton() {
-    qDebug() << "[ (BUTTON) " << this->text() << " got deleted. ]" << Qt::endl;
-}
+TextButton::~TextButton() = default;
