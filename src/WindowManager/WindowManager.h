@@ -22,6 +22,10 @@ public:
     ~WindowManager() override;
 
 private:
+    void settings(const QString &title);
+    void setUpWelcome();
+    void setUpEditor();
+
     // Global
     Data* data;
 

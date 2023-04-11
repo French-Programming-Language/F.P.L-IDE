@@ -1,6 +1,11 @@
 #include "WindowManager.h"
 
 WindowManager::WindowManager(QWidget *parent, const QString &title) : QMainWindow(parent) {
+    settings(title);
+    setUpWelcome();
+}
+
+void WindowManager::settings(const QString &title) {
     QString Window_StyleSheet = ""
                                 "QMainWindow {"
                                 "  background: rgb(51,54,56);"
@@ -11,7 +16,9 @@ WindowManager::WindowManager(QWidget *parent, const QString &title) : QMainWindo
     this->resize(600, 300);
     this->setMaximumSize(this->size());
     this->setStyleSheet(Window_StyleSheet);
+}
 
+void WindowManager::setUpWelcome() {
     this->widget_start = new QWidget(this);
     this->setCentralWidget(widget_start);
     this->existingLayout = widget_start->layout();
@@ -27,25 +34,37 @@ WindowManager::WindowManager(QWidget *parent, const QString &title) : QMainWindo
     mainLogoLabel->setAlignment(Qt::AlignCenter);
 
     this->mainLayout_start->addWidget(mainLogoLabel);
+
+    QString Title_StyleSheet = ""
+                                "QLabel {"
+                                "  width: auto;"
+                                "  height: 50px;"
+                                "  border: none;"
+                                "  color: white;"
+                                "  font-size: 35px;"
+                                "  text-align: center;"
+                                "}"
+    ;
+    this->title_start->setStyleSheet(Title_StyleSheet);
     this->mainLayout_start->addWidget(this->title_start);
 
     QString Button_StyleSheet = ""
-                         "QPushButton {"
-                         "  width: 70px;"
-                         "  height: 70px;"
-                         "  border: none;"
-                         "  background: rgb(50, 92, 134);"
-                         "  color: rgb(118, 146, 183);"
-                         "  font-size: 15px;"
-                         "  text-align: center;"
-                         "  border-radius: 10px;"
-                         "}"
-                         "QPushButton:hover {"
-                         "  color: white;"
-                         "  border-radius: 15px;"
-                         "  background: rgb(50, 111, 193);"
-                         "}"
-                         ;
+                                "QPushButton {"
+                                "  width: 70px;"
+                                "  height: 70px;"
+                                "  border: none;"
+                                "  background: rgb(50, 92, 134);"
+                                "  color: rgb(118, 146, 183);"
+                                "  font-size: 15px;"
+                                "  text-align: center;"
+                                "  border-radius: 10px;"
+                                "}"
+                                "QPushButton:hover {"
+                                "  color: white;"
+                                "  border-radius: 15px;"
+                                "  background: rgb(50, 111, 193);"
+                                "}"
+    ;
 
     this->openButton_start->setStyleSheet(Button_StyleSheet);
     this->newFileButton_start->setStyleSheet(Button_StyleSheet);
