@@ -3,13 +3,12 @@
 
 #include <QMainWindow>
 #include <QString>
-#include <QMenuBar>
-#include <QSplitter>
-#include <QTreeView>
-#include <QTextEdit>
-#include <QFileSystemModel>
-#include <QDir>
-#include <QStandardPaths>
+#include <QWidget>
+
+#include "../TextButton/TextButton.h"
+#include "../TextLabel/TextLabel.h"
+#include "../HorizontalLayout/HorizontalLayout.h"
+#include "../VerticalLayout/VerticalLayout.h"
 
 class WindowManager : public QMainWindow {
 Q_OBJECT
@@ -19,20 +18,12 @@ public:
     ~WindowManager() override;
 
 private:
-    QSplitter* splitter_ide;
-    QTreeView* files_view;
-    QFileSystemModel* files_model;
-    QTextEdit* text_edit_view;
-    QMenuBar* MainMenu;
-    QMenu* contentFile;
-    QAction* ac_file_new;
-    QAction* ac_file_open;
-    QAction* ac_file_save;
-    QAction* ac_file_saveas;
-    QMenu* contentEdit;
-    QAction* ac_edit_undo;
-    QAction* ac_edit_redo;
-    QAction* ac_edit_find;
+    // Début de l'app
+    VerticalLayout* mainLayout_start = new VerticalLayout(nullptr, Qt::AlignCenter);
+    HorizontalLayout* buttonsLayout_start = new HorizontalLayout(nullptr, Qt::AlignCenter);
+    TextLabel* title_start = new TextLabel(nullptr, "Bienvenue sur l'IDE de F.P.L", Qt::AlignCenter);
+    TextButton* newFileButton_start = new TextButton(nullptr, "Nouveau");
+    TextButton* openButton_start = new TextButton(nullptr, "Ouvrir");
 };
 
 #endif // WINDOWMANAGER_H
