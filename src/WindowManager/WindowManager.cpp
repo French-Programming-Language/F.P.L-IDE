@@ -16,6 +16,7 @@ void WindowManager::settings(const QString &title) {
     this->resize(600, 300);
     this->setMaximumSize(this->size());
     this->setStyleSheet(Window_StyleSheet);
+    this->titleApp = title;
 }
 
 void WindowManager::setUpWelcome() {
@@ -51,10 +52,11 @@ void WindowManager::setUpWelcome() {
     QString Button_StyleSheet = ""
                                 "QPushButton {"
                                 "  width: 70px;"
+                                "  font-weight: bold;"
                                 "  height: 70px;"
                                 "  border: none;"
                                 "  background: rgb(50, 92, 134);"
-                                "  color: rgb(118, 146, 183);"
+                                "  color: rgb(200,200,200);"
                                 "  font-size: 15px;"
                                 "  text-align: center;"
                                 "  border-radius: 10px;"
@@ -74,7 +76,34 @@ void WindowManager::setUpWelcome() {
     this->buttonsLayout_start->addWidget(this->openButton_start);
     this->buttonsLayout_start->addItem(new QSpacerItem(10, 30, QSizePolicy::Expanding, QSizePolicy::Minimum));
     this->mainLayout_start->addItem(this->buttonsLayout_start);
-    widget_start->setLayout(this->mainLayout_start);
+    this->widget_start->setLayout(this->mainLayout_start);
+
+    connect(this->newFileButton_start, SIGNAL(clicked(bool)), this, SLOT(newFileButton(bool)));
+    connect(this->openButton_start, SIGNAL(clicked(bool)), this, SLOT(openFileButton(bool)));
+}
+
+void WindowManager::setUpEditor() {
+    QString Window_StyleSheet = ""
+                                "QWidget {"
+                                "  background: rgb(51,54,56);"
+                                "}"
+    ;
+
+    this->widget_editor = new QWidget(nullptr);
+    this->widget_editor->setWindowTitle(this->titleApp);
+    this->widget_editor->setStyleSheet(Window_StyleSheet);
+    this->widget_editor->setWindowIcon(QIcon("images/fpl_logo.png"));
+
+    this->close();
+    this->widget_editor->show();
+}
+
+void WindowManager::newFileButton(bool b) {
+    setUpEditor();
+}
+
+void WindowManager::openFileButton(bool b) {
+    setUpEditor();
 }
 
 WindowManager::~WindowManager() = default;
