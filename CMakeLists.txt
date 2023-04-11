@@ -20,7 +20,7 @@ find_package(Qt6 COMPONENTS
 add_executable(F_P_L_IDE main.cpp
         src/WindowManager/WindowManager.cpp
         src/WindowManager/WindowManager.h
-        src/TextButton/TextButton.cpp src/TextButton/TextButton.h src/TextLabel/TextLabel.cpp src/TextLabel/TextLabel.h src/HorizontalLayout/HorizontalLayout.cpp src/HorizontalLayout/HorizontalLayout.h)
+        src/TextButton/TextButton.cpp src/TextButton/TextButton.h src/TextLabel/TextLabel.cpp src/TextLabel/TextLabel.h src/HorizontalLayout/HorizontalLayout.cpp src/HorizontalLayout/HorizontalLayout.h src/VerticalLayout/VerticalLayout.cpp src/VerticalLayout/VerticalLayout.h)
 
 target_link_libraries(F_P_L_IDE
         Qt::Core
