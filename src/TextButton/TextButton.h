@@ -5,8 +5,11 @@
 
 class TextButton : public QPushButton {
     explicit TextButton(QWidget *parent = nullptr);
-    explicit TextButton(QWidget *parent = nullptr, const QString& text = "");
+
     ~TextButton() override;
+
+public:
+    explicit TextButton(QWidget *parent = nullptr, const QString& text = "");
 };
 
 
