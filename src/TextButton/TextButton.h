@@ -4,11 +4,10 @@
 #include <QPushButton>
 
 class TextButton : public QPushButton {
+public:
     explicit TextButton(QWidget *parent = nullptr);
 
     ~TextButton() override;
-
-public:
     explicit TextButton(QWidget *parent = nullptr, const QString& text = "");
 };
 
