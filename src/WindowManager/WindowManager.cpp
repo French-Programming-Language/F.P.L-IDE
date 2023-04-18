@@ -60,13 +60,12 @@ void WindowManager::setUpWelcome() {
 
     QString recentF_BG_start_Stylesheet = ""
                                "QLabel {"
-                               "  width: 500px;"
-                               "  height: 70px;"
                                "  border-radius: 20px;"
                                "  background-color: rgb(40,40,40);"
                                "}"
     ;
 
+    this->recentF_BG_start->setFixedSize(250, 450);
     this->recentF_BG_start->setStyleSheet(recentF_BG_start_Stylesheet);
 
     this->recentFiles_layout_start->addWidget(this->recentF_BG_start);
@@ -76,36 +75,62 @@ void WindowManager::setUpWelcome() {
     this->newFile_btn_start->setStyleSheet(Button_StyleSheet);
     this->openFile_btn_start->setStyleSheet(Button_StyleSheet);
 
+    QPixmap logo_newfile("images/new_logo.png");
+    QPixmap logo_openfile("images/file_logo.png");
+    this->newFile_btn_start->setIcon(QIcon(logo_newfile));
+    this->newFile_btn_start->setIconSize(QSize(50,50));
+    this->openFile_btn_start->setIcon(QIcon(logo_openfile));
+    this->openFile_btn_start->setIconSize(QSize(50,50));
+
     this->classicContent_layout_start->addWidget(this->title_start);
-    this->classicContent_layout_start->addItem(new QSpacerItem(0, 50));
+    this->classicContent_layout_start->addItem(new QSpacerItem(0, 30));
     this->classicButtons_layout->addWidget(this->newFile_btn_start);
     this->classicButtons_layout->addItem(new QSpacerItem(50, 0));
     this->classicButtons_layout->addWidget(this->openFile_btn_start);
     this->classicContent_layout_start->addItem(classicButtons_layout);
-    this->classicContent_layout_start->addItem(new QSpacerItem(0, 200));
+    this->classicContent_layout_start->addItem(new QSpacerItem(0, 150));
     this->classic_layout_start->addItem(classicContent_layout_start);
 
 
     this->main_layout_start->addItem(new QSpacerItem(50, 0));
     this->main_layout_start->addItem(this->recentFiles_layout_start);
-    this->main_layout_start->addItem(new QSpacerItem(300, 0));
+    this->main_layout_start->addItem(new QSpacerItem(200, 0));
     this->main_layout_start->addItem(this->classic_layout_start);
     this->main_layout_start->addItem(new QSpacerItem(50, 0));
 
     this->widget_start->setLayout(this->main_layout_start);
     this->widget_start->show();
+
+
+    connect(this->newFile_btn_start, SIGNAL(clicked(bool)), this, SLOT(newFileButton(bool)));
+    connect(this->openFile_btn_start, SIGNAL(clicked(bool)), this, SLOT(openFileButton(bool)));
 }
 
-void WindowManager::setUpEditor() {
 
+void WindowManager::setUpEditor(QString filePath) {
+    this->editor = new Editor(nullptr, this->titleApp, filePath);
+    this->editor->show();
+
+    this->close();
 }
 
 void WindowManager::newFileButton(bool b) {
-    setUpEditor();
+    setUpEditor("N/A");
 }
 
 void WindowManager::openFileButton(bool b) {
-    setUpEditor();
+    QString fileName = QFileDialog::getOpenFileName(
+            this,
+            tr("Sélectionner un fichier"),
+            "",
+            tr("Fichiers (*.*)")
+    );
+
+    if (!fileName.isEmpty()) {
+        setUpEditor(fileName);
+    } else {
+        setUpEditor("N/A");
+    }
 }
 
 WindowManager::~WindowManager() = default;

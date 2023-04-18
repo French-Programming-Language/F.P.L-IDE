@@ -2,18 +2,25 @@
 #define WINDOWMANAGER_H
 
 #include <iostream>
+#include <optional>
 #include <QMainWindow>
 #include <QString>
 #include <QWidget>
 #include <QPushButton>
 #include <QSpacerItem>
 #include <QPixmap>
+#include <QIcon>
+#include <QTextEdit>
+#include <QPlainTextEdit>
+#include <QMenuBar>
+#include <QFileDialog>
 
-#include "../Data/Data.h"
 #include "../TextButton/TextButton.h"
 #include "../TextLabel/TextLabel.h"
 #include "../HorizontalLayout/HorizontalLayout.h"
 #include "../VerticalLayout/VerticalLayout.h"
+
+#include "../Editor/Editor.h"
 
 class WindowManager : public QMainWindow {
 Q_OBJECT
@@ -29,10 +36,9 @@ private slots:
 private:
     void settings(const QString &title);
     void setUpWelcome();
-    void setUpEditor();
+    void setUpEditor(QString filePath);
 
     // Global
-    Data* data;
     QString titleApp = "App";
 
 
@@ -48,6 +54,9 @@ private:
     HorizontalLayout* classicButtons_layout = new HorizontalLayout(nullptr, Qt::AlignAbsolute);
     TextButton* newFile_btn_start = new TextButton(nullptr, "");
     TextButton* openFile_btn_start = new TextButton(nullptr, "");
+
+    // Editor:
+    Editor* editor;
 };
 
 #endif // WINDOWMANAGER_H
