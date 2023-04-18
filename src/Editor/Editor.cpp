@@ -84,7 +84,7 @@ Editor::Editor(QWidget *parent, const QString &title, const QString& filePath) {
     this->menuEditor_files->addAction(this->menuEditor_files_new);
     this->menuEditor_files->addAction(this->menuEditor_files_open);
     this->menuEditor_files->addAction(this->menuEditor_files_save);
-    this->menuEditor_files->addAcztion(this->menuEditor_files_saveas);
+    this->menuEditor_files->addAction(this->menuEditor_files_saveas);
     this->menuEditor_run->addAction(this->menuEditor_run_run);
     this->menuEditor_run->addAction(this->menuEditor_run_settings);
     this->editor_menu->addMenu(this->menuEditor_files);
