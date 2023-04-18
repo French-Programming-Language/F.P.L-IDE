@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
     WindowManager w(nullptr, "F.P.L IDE - Version 0");
-    w.setWindowIcon(QIcon("images/fpl_logo.png"));
+    w.setWindowIcon(QIcon("images/icon.png"));
     w.show();
 
     return QApplication::exec();
