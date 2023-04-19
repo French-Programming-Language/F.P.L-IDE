@@ -11,7 +11,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-
 find_package(Qt6 COMPONENTS
         Core
         Gui
@@ -31,8 +30,6 @@ add_executable(F_P_L_IDE main.cpp
         src/VerticalLayout/VerticalLayout.h
         src/Editor/Editor.cpp
         src/Editor/Editor.h)
-
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -static-libgcc -static-libstdc++")
 
 target_link_libraries(F_P_L_IDE
         Qt::Core
