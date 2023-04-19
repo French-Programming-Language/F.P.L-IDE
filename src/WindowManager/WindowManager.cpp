@@ -107,15 +107,22 @@ void WindowManager::setUpWelcome() {
 }
 
 
-void WindowManager::setUpEditor(QString filePath) {
-    this->editor = new Editor(nullptr, this->titleApp, filePath);
+void WindowManager::setUpEditor(const QString& filePath) {
+    this->editor = new Editor(this->titleApp, filePath);
+    this->editor->currentEditFile_Path = filePath;
     this->editor->show();
 
     this->close();
 }
 
 void WindowManager::newFileButton(bool b) {
-    setUpEditor("N/A");
+    std::ofstream newF {"unknown.fpl"};
+    if (newF.is_open()) {
+        newF << "envoyer \"Bienvenue !\";" << std::endl;
+        newF.close();
+    }
+
+    setUpEditor("unknown.fpl");
 }
 
 void WindowManager::openFileButton(bool b) {

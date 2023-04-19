@@ -36,7 +36,7 @@ private slots:
 private:
     void settings(const QString &title);
     void setUpWelcome();
-    void setUpEditor(QString filePath);
+    void setUpEditor(const QString& filePath);
 
     // Global
     QString titleApp = "App";
