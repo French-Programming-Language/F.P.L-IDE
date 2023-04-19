@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 #include <QMainWindow>
 #include <QString>
 #include <QWidget>
@@ -28,6 +29,11 @@ public:
     ~Editor() override;
 
     QString filePath;
+
+private slots:
+    void menu_file_new();
+    void menu_file_open();
+    void menu_run_run();
 
 private:
     // Global :

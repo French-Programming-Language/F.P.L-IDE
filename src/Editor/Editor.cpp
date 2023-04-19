@@ -1,4 +1,5 @@
 #include <QFile>
+#include <QFileDialog>
 #include "Editor.h"
 
 Editor::Editor(QWidget *parent, const QString &title, const QString& filePath) {
@@ -110,6 +111,47 @@ Editor::Editor(QWidget *parent, const QString &title, const QString& filePath) {
 
         this->editor_text->setText(fileContent);
     }
+
+
+    connect(this->menuEditor_files_new, &QAction::triggered, this, &Editor::menu_file_new);
+    connect(this->menuEditor_files_open, &QAction::triggered, this, &Editor::menu_file_open);
+
+    connect(this->menuEditor_run_run, &QAction::triggered, this, &Editor::menu_run_run);
 }
+
+void Editor::menu_file_open()
+{
+    QString fileName = QFileDialog::getOpenFileName(
+            this,
+            tr("Sélectionner un fichier"),
+            "",
+            tr("Fichiers (*.*)")
+    );
+
+    if (!fileName.isEmpty()) {
+        QFile file(fileName);
+        QString fileContent;
+
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                QString line = in.readLine();
+                fileContent += line + "\n";  // Ajouter la ligne au contenu du fichier avec un saut de ligne
+            }
+            file.close();
+        }
+
+        this->editor_text->setText(fileContent);
+    }
+}
+
+void Editor::menu_file_new() {
+
+}
+
+void Editor::menu_run_run() {
+    system("interpreters\\V2-FPL.exe");
+}
+
 
 Editor::~Editor() = default;
